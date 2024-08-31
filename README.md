@@ -1,4 +1,3 @@
-Here's a README file customized for your Next.js project with Tailwind CSS. I've also included details about the form component and how to use it.
 
 ```markdown
 # EleKars - EV Car Booking
