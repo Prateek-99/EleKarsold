@@ -6,6 +6,8 @@ import Head from "next/head";
 import Banner from "@/components/Banner";
 
 import EnquiryForm from "@/components/EnquiryForm";
+import Footer from "@/components/Footer";
+import FairCalculator from "@/components/FairCalculator";
 
 export default function Home() {
   return (
@@ -21,6 +23,8 @@ export default function Home() {
       <div>
         <Banner />
         <EnquiryForm />
+        <Footer />
+        <FairCalculator />
       </div>
     </>
   );
