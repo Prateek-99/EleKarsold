@@ -23,8 +23,15 @@ export default function Home() {
       <div>
         <Banner />
         <EnquiryForm />
+        <div>
+          <div>
+            {" "}
+            <FairCalculator />
+          </div>
+          <div></div>
+        </div>
+
         <Footer />
-        <FairCalculator />
       </div>
     </>
   );
