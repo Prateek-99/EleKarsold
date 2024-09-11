@@ -12,6 +12,24 @@ module.exports = {
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
         bannerbg: "url('/punch.jpg')",
+        Homebg: "url('/bg.png')",
+      },
+      keyframes: {
+        typing: {
+          "0%": { width: "0%" },
+          "100%": { width: "100%" },
+        },
+        blink: {
+          "50%": { borderColor: "transparent" },
+        },
+        colorChange: {
+          "0%, 100%": { color: "#5c8ffc" },
+          "50%": { color: "#33ae60" },
+        },
+      },
+      animation: {
+        typing: "typing 2s steps(10) infinite, blink .75s step-end infinite",
+        colorChange: "colorChange 3s infinite",
       },
     },
   },

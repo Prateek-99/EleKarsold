@@ -1,249 +1,194 @@
-"use client";
-import React, { useState, useEffect } from "react";
-import "@fortawesome/fontawesome-free/css/all.min.css";
-import Swal from "sweetalert2";
-import Usps from "./Usp";
+import { useState } from "react";
 
-const EnquiryForm = () => {
-  // State to hold form input values
-  const [userDetails, setUserDetails] = useState({
-    name: "",
-    mobileNumber: "",
-    journeyDateTime: "",
-    locationFrom: "",
-    locationTo: "",
+const JourneyForm = () => {
+  const [formData, setFormData] = useState({
     tripType: "",
+    name: "",
+    mobile: "",
     email: "",
+    dateTime: "",
+    pickup: "",
+    dropoff: "",
   });
 
-  //   state to handle alerts
-  const [alerts, setAlerts] = useState(false);
-
-  // State to hold validation errors
-  const [errors, setErrors] = useState({});
-
-  // State to hold min date and time
-  const [minDate, setMinDate] = useState("");
-  const [minTime, setMinTime] = useState("");
-
-  useEffect(() => {
-    // Set minimum date to today
-    const today = new Date().toISOString().split("T")[0];
-    setMinDate(today);
-
-    // Set minimum time to 45 minutes from now
-    const now = new Date();
-    now.setMinutes(now.getMinutes() + 45);
-    const minTimeString = now.toISOString().split("T")[1].substring(0, 5);
-    setMinTime(minTimeString);
-  }, []);
-
-  // Handler for input changes
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setUserDetails({
-      ...userDetails,
-      [name]: value,
-    });
+    setFormData({ ...formData, [name]: value });
   };
 
-  // Validate form data
-  const validateForm = () => {
-    const newErrors = {};
-
-    // Name validation
-    if (userDetails.name.length < 5) {
-      newErrors.name = "Name must be at least 5 characters long.";
-    }
-
-    // Mobile number validation
-    const mobilePattern = /^[6-9]\d{9}$/;
-    if (!mobilePattern.test(userDetails.mobileNumber)) {
-      newErrors.mobileNumber = "Please enter a valid 10-digit mobile number.";
-    }
-
-    // Date & Time validation
-    if (!userDetails.journeyDateTime) {
-      newErrors.journeyDateTime =
-        "Please select a date and time for your journey.";
-    }
-
-    // Location From validation
-    if (!userDetails.locationFrom) {
-      newErrors.locationFrom = "Please enter your pickup location.";
-    }
-
-    // Location To validation
-    if (!userDetails.locationTo) {
-      newErrors.locationTo = "Please enter your destination location.";
-    }
-
-    // Trip Type validation
-    if (!userDetails.tripType) {
-      newErrors.tripType = "Please select a trip type.";
-    }
-
-    setErrors(newErrors);
-    return Object.keys(newErrors).length === 0;
-  };
-
-  // Handler for form submission
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    if (validateForm()) {
-      console.log(userDetails);
-      await Swal.fire({
-        title: "Thank you!",
-        text: "Your enquiry has been submitted successfully.Our Executive will reach out to you shortly",
-        icon: "success",
-        confirmButtonText: "OK",
-      });
-      setUserDetails({
-        name: "",
-        mobileNumber: "",
-        journeyDateTime: "",
-        locationFrom: "",
-        locationTo: "",
-        tripType: "",
-        email: "", // Add this line if you have an email field
-      });
-    } else {
-      console.log("Validation failed.");
-      await Swal.fire({
-        title: "Error!",
-        text: "Please check the form",
-        icon: "error",
-        confirmButtonText: "OK",
-      });
-    }
+    console.log(formData);
+    // Handle form submission here
   };
 
   return (
-    <div className="flex flex-col-reverse md:flex-row bg-white rounded-lg shadow-lg md:px-4">
-      {/* USP Section */}
-      <div className="md:w-1/2 p-2 md:p-4  rounded-l-lg">
-        <Usps />
+    <form
+      className="max-w-lg mx-auto pb-4 border-2 border-[#5c8ffc] p- bg-white shadow-xl rounded-[35px]"
+      onSubmit={handleSubmit}
+    >
+      <div className="flex justify-center bg-[#5c8ffc] items-center p-2 rounded-t-[35px]">
+        <h2 className="text-2xl text-white font-bold ">Book Your Journey</h2>
       </div>
 
-      {/* Form Section */}
-      <div className="md:w-1/2 p-4 bg-blue-50 px-12 rounded-r-lg">
-        <h2 className="text-2xl font-bold mb-4 text-center text-[#33ae60]">
-          Book Your Ride
-        </h2>
-        <form className="space-y-4" onSubmit={handleSubmit}>
-          <div>
-            <label className="block text-[#22448b]">Name</label>
+      {/* Radio buttons for trip type */}
+      <div className="  p-4">
+        <label className="block font-medium mb-2">Trip Type</label>
+        <div className="flex justify-between gap-4">
+          <label className="inline-flex  border-2 bg-green-50 border-green-100 p-2 rounded-md items-center">
             <input
-              type="text"
-              name="name"
-              value={userDetails.name}
-              onChange={handleChange}
-              className="w-full p-2 border bg-blue-100 text-[#22448b] border-gray-300 rounded-md"
-              placeholder="Enter your name"
-              required
-            />
-            {errors.name && <p className="text-red-500">{errors.name}</p>}
-          </div>
-          <div>
-            <label className="block text-[#22448b]">Mobile Number</label>
-            <input
-              type="tel"
-              name="mobileNumber"
-              value={userDetails.mobileNumber}
-              onChange={handleChange}
-              className="w-full p-2 border bg-blue-100 text-[#22448b] border-gray-300 rounded-md"
-              placeholder="Enter your mobile number"
-              required
-            />
-            {errors.mobileNumber && (
-              <p className="text-red-500">{errors.mobileNumber}</p>
-            )}
-          </div>
-          <div>
-            <label className="block text-[#22448b]">
-              Date & Time of Journey
-            </label>
-            <input
-              type="datetime-local"
-              name="journeyDateTime"
-              value={userDetails.journeyDateTime}
-              onChange={handleChange}
-              className="w-full p-2 border bg-blue-100 text-[#22448b] border-gray-300 rounded-md"
-              min={`${minDate}T${minTime}`}
-              required
-            />
-            {errors.journeyDateTime && (
-              <p className="text-red-500">{errors.journeyDateTime}</p>
-            )}
-          </div>
-          <div>
-            <label className="block text-[#22448b]">Pickup</label>
-            <input
-              type="text"
-              name="locationFrom"
-              value={userDetails.locationFrom}
-              onChange={handleChange}
-              className="w-full p-2 border bg-blue-100 text-[#22448b] border-gray-300 rounded-md"
-              placeholder="Enter pickup location"
-              required
-            />
-            {errors.locationFrom && (
-              <p className="text-red-500">{errors.locationFrom}</p>
-            )}
-          </div>
-          <div>
-            <label className="block text-[#22448b]">Drop off</label>
-            <input
-              type="text"
-              name="locationTo"
-              value={userDetails.locationTo}
-              onChange={handleChange}
-              className="w-full p-2 border bg-blue-100 text-[#22448b] border-gray-300 rounded-md"
-              placeholder="Enter destination location"
-              required
-            />
-            {errors.locationTo && (
-              <p className="text-red-500">{errors.locationTo}</p>
-            )}
-          </div>
-          <div>
-            <label className="block text-[#22448b]">Trip Type</label>
-            <select
+              type="radio"
               name="tripType"
-              value={userDetails.tripType}
+              value="one-way"
+              checked={formData.tripType === "one-way"}
               onChange={handleChange}
-              className="w-full p-2 border bg-blue-100 text-[#22448b] border-gray-300 rounded-md"
-              required
-            >
-              <option value="">Select Trip Type</option>
-              <option value="one-way">One Way</option>
-              <option value="round-trip">Round Trip</option>
-            </select>
-            {errors.tripType && (
-              <p className="text-red-500">{errors.tripType}</p>
-            )}
-          </div>
-          <div>
-            <label className="block text-[#22448b]">Email (Optional)</label>
-            <input
-              type="email"
-              name="email"
-              value={userDetails.email}
-              onChange={handleChange}
-              className="w-full p-2 border bg-blue-100 text-[#22448b] border-gray-300 rounded-md"
-              placeholder="Enter your email (optional)"
+              className="form-radio "
             />
-          </div>
-          <button
-            type="submit"
-            className="w-full bg-green-600 text-white p-2 rounded-md hover:bg-green-700"
-          >
-            Submit
-          </button>
-        </form>
+            <span className="ml-2 whitespace-nowrap text-[14px]">One Way</span>
+          </label>
+
+          <label className="inline-flex border-2 bg-green-50 border-green-100 p-2 rounded-md items-center">
+            <input
+              type="radio"
+              name="tripType"
+              value="round-trip"
+              checked={formData.tripType === "round-trip"}
+              onChange={handleChange}
+              className="form-radio text-blue-500"
+            />
+            <span className="ml-2 whitespace-nowrap text-[14px]">
+              Round Trip
+            </span>
+          </label>
+
+          <label className="inline-flex border-2 bg-green-50 p-2 border-green-100 rounded-md items-center">
+            <input
+              type="radio"
+              name="tripType"
+              value="semi-round-trip"
+              checked={formData.tripType === "semi-round-trip"}
+              onChange={handleChange}
+              className="form-radio text-blue-500"
+            />
+            <span className="ml-2 whitespace-nowrap text-[14px]">
+              Semi Round Trip
+            </span>
+          </label>
+        </div>
       </div>
-    </div>
+
+      {/* Name */}
+      <div className=" p-2 px-4">
+        <label className="block font-medium mb-1 px-2" htmlFor="name">
+          Name
+        </label>
+        <input
+          type="text"
+          name="name"
+          id="name"
+          value={formData.name}
+          onChange={handleChange}
+          className="w-full p-2 border border-[#33ae60] rounded-2xl"
+          placeholder="Enter your name"
+          required
+        />
+      </div>
+
+      {/* Mobile */}
+      <div className="p-2 px-4">
+        <label className="block font-medium mb-2" htmlFor="mobile">
+          Mobile No.
+        </label>
+        <input
+          type="tel"
+          name="mobile"
+          id="mobile"
+          value={formData.mobile}
+          onChange={handleChange}
+          className="w-full p-2 border border-[#33ae60] rounded-2xl"
+          placeholder="Enter your mobile number"
+          required
+        />
+      </div>
+
+      {/* Email */}
+      <div className="p-2 px-4">
+        <label className="block font-medium mb-2" htmlFor="email">
+          Email
+        </label>
+        <input
+          type="email"
+          name="email"
+          id="email"
+          value={formData.email}
+          onChange={handleChange}
+          className="w-full p-2 border border-[#33ae60] rounded-2xl"
+          placeholder="Enter your email"
+          required
+        />
+      </div>
+
+      {/* Date & Time */}
+      <div className="p-2 px-4">
+        <label className="block font-medium mb-2" htmlFor="dateTime">
+          Date & Time of Journey
+        </label>
+        <input
+          type="datetime-local"
+          name="dateTime"
+          id="dateTime"
+          value={formData.dateTime}
+          onChange={handleChange}
+          className="w-full p-2 border border-[#33ae60] rounded-2xl"
+          required
+        />
+      </div>
+
+      {/* Pickup */}
+      <div className="p-2 px-4">
+        <label className="block font-medium mb-2" htmlFor="pickup">
+          Pickup Location
+        </label>
+        <input
+          type="text"
+          name="pickup"
+          id="pickup"
+          value={formData.pickup}
+          onChange={handleChange}
+          className="w-full p-2 border border-[#33ae60] rounded-2xl"
+          placeholder="Enter pickup location"
+          required
+        />
+      </div>
+
+      {/* Dropoff */}
+      <div className="p-2 px-4">
+        <label className="block font-medium mb-2" htmlFor="dropoff">
+          Dropoff Location
+        </label>
+        <input
+          type="text"
+          name="dropoff"
+          id="dropoff"
+          value={formData.dropoff}
+          onChange={handleChange}
+          className="w-full p-2 border border-[#33ae60] rounded-2xl"
+          placeholder="Enter dropoff location"
+          required
+        />
+      </div>
+
+      {/* Submit button */}
+      <div className="px-4">
+        <button
+          type="submit"
+          className="w-full bg-blue-500 text-white p-2  rounded-xl hover:bg-blue-600"
+        >
+          Submit
+        </button>
+      </div>
+    </form>
   );
 };
 
-export default EnquiryForm;
+export default JourneyForm;

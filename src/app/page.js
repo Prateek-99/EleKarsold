@@ -8,6 +8,7 @@ import Banner from "@/components/Banner";
 import EnquiryForm from "@/components/EnquiryForm";
 import Footer from "@/components/Footer";
 import FairCalculator from "@/components/FairCalculator";
+import OurServices from "@/components/OurServices";
 
 export default function Home() {
   return (
@@ -20,9 +21,16 @@ export default function Home() {
         />
         <meta name="viewport" content="width=device-width,initials-scale=1.0" />
       </Head>
-      <div>
+      <div className="gap-4">
         <Banner />
-        <EnquiryForm />
+        <OurServices />
+        <div className="py-6 px-6 flex justify-between">
+          {" "}
+          <div className="w-1/2">
+            <EnquiryForm />
+          </div>
+          <div className="w-1/2"></div>
+        </div>
         <div>
           <div>
             {" "}

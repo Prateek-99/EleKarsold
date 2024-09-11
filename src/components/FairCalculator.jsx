@@ -144,7 +144,7 @@ const oneWayRoutes = [
 ];
 
 const calculateFare = (distance, isRoundTrip) => {
-  const farePerKm = 10;
+  const farePerKm = 15;
   let fare = distance * farePerKm;
   if (isRoundTrip) {
     fare *= 2;
