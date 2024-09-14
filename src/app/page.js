@@ -9,6 +9,9 @@ import EnquiryForm from "@/components/EnquiryForm";
 import Footer from "@/components/Footer";
 import FairCalculator from "@/components/FairCalculator";
 import OurServices from "@/components/OurServices";
+import ComponentHeader from "@/components/ComponentHeader";
+import Form from "@/components/Form";
+import WhyUs from "@/components/WhyUs";
 
 export default function Home() {
   return (
@@ -24,13 +27,25 @@ export default function Home() {
       <div className="gap-4">
         <Banner />
         <OurServices />
-        <div className="py-6 px-6 flex justify-between">
+        <ComponentHeader title={"Get In Touch With Us!"} />
+        <Form />
+        <ComponentHeader title={"Why Choose Us!"} />
+        <WhyUs />
+        {/* <div className="pb-6 md:px-6 flex flex-co border-2 mx-4 rounded-xl  md:justify-between">
           {" "}
-          <div className="w-1/2">
+          <Form />
+          <div className="md:w-1/2 px-2 flex">
             <EnquiryForm />
           </div>
-          <div className="w-1/2"></div>
-        </div>
+          <div className="md:w-1/">
+            <Image
+              src={"/taxi.jpg"}
+              width={100}
+              height={100}
+              alt="contact us"
+            />
+          </div>
+        </div> */}
         <div>
           <div>
             {" "}

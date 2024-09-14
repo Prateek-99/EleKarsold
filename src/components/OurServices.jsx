@@ -11,7 +11,7 @@ export default function OurServices() {
         title={"Our services"}
         subheading={"Reliable, Eco-Friendly Travel Solutions for Every Journey"}
       />
-      <div className="flex gap-5 justify-center overflow-x-scroll">
+      <div className="flex md:gap-5 gap-3 hide-scrollbar md:justify-center px-4 overflow-x-scroll">
         <OneWayServicesCard />
         <RoundTripServicesCard />
         <SemiRoundTripServicesCard />

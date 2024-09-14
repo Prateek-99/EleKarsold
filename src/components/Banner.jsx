@@ -14,7 +14,7 @@ const Banner = () => {
   }, []);
 
   return (
-    <div className="relative h-[550px] overflow-hidden">
+    <div className="relative  mx-4 rounded-2xl h-[550px] overflow-hidden">
       {/* Background GIF */}
       <Image
         src="/banner1.gif"

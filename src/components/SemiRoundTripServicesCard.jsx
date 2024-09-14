@@ -3,7 +3,7 @@ import React from "react";
 
 export default function SemiRoundTripServicesCard() {
   return (
-    <div className="border-2 rounded-xl border-blue-300 bg-blue-50 relative min-w-[400px] max-w-[400px] justify-center items-center flex flex-col">
+    <div className="border-2 rounded-xl border-blue-300 bg-blue-50 relative min-w-[350px] md:min-w-[400px] max-w-[400px] justify-center items-center flex flex-col">
       <div className="p-2">
         <Image
           src={"/oneway.jpg"}
@@ -13,7 +13,7 @@ export default function SemiRoundTripServicesCard() {
           className=" border-2 border-blue-300  rounded-2xl opacity-80"
         />
       </div>
-      <div className="absolute bottom-[54%] flex justify-center items-center">
+      <div className="absolute md:bottom-[54%] bottom-[60%] flex justify-center items-center">
         <h2 className="text-center text-[40px]  text-green-200  leading-9 font-extrabold text-whit ">
           {" "}
           Semi Round Trip
