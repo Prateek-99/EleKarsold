@@ -1,5 +1,6 @@
-import Image from 'next/image';
-import { useState, useEffect } from 'react';
+import Image from "next/image";
+import { useState, useEffect } from "react";
+import Button from "./Button";
 
 const Banner = () => {
   const [showText, setShowText] = useState(false);
@@ -28,12 +29,18 @@ const Banner = () => {
       <div className="absolute inset-0 bg-black bg-opacity-40 flex justify-center items-start  md:items-center md:mt-16 mt-6">
         <h1
           className={`text-white text-4xl whitespace-nowrap  flex font-bold transition-opacity  duration-200 ${
-            showText ? 'opacity-100' : 'opacity-0'
+            showText ? "opacity-100" : "opacity-0"
           }`}
         >
-          Welcome to <p className='text-[#5c8ffc] pl-2   whitespace-nowrap'> Ele<span className='text-[#33ae60]'>kars</span></p> 
+          Welcome to{" "}
+          <p className="text-[#5c8ffc] pl-2   whitespace-nowrap">
+            {" "}
+            Ele<span className="text-[#33ae60]">kars</span>
+          </p>
         </h1>
+       
       </div>
+    
     </div>
   );
 };

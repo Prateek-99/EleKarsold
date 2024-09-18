@@ -6,7 +6,7 @@ import ComponentHeader from "./ComponentHeader";
 
 export default function OurServices() {
   return (
-    <div className="py-8">
+    <div className="pb-8">
       <ComponentHeader
         title={"Our services"}
         subheading={"Reliable, Eco-Friendly Travel Solutions for Every Journey"}

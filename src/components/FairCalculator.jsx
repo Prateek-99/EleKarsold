@@ -152,11 +152,10 @@ const calculateFare = (distance, isRoundTrip) => {
   return fare;
 };
 
-const FairCalculator = () => {
+const FairCalculator = ({ fare, setFare }) => {
   const [pickupLocation, setPickupLocation] = useState("");
   const [dropLocation, setDropLocation] = useState("");
   const [isRoundTrip, setIsRoundTrip] = useState(true);
-  const [fare, setFare] = useState(null);
 
   const handleCalculateFare = () => {
     if (pickupLocation === dropLocation) {
@@ -187,11 +186,11 @@ const FairCalculator = () => {
   );
 
   return (
-    <div className="flex justify-center items-center mx-2   bg-gray-100">
-      <div className="p-4 min-w-full bg-white rounded-lg shadow-md">
-        <h2 className="text-2xl font-bold mb-4 text-center text-blue-600">
-          Fare Calculator
-        </h2>
+    <div className="flex justify-center items-center mx-2   ">
+      <div
+        className="p-4 min-w- bg-white rounded-lg shadow-md min-h-[400px] flex flex-col justify-around
+      "
+      >
         <div className="mb-4">
           <label className="block text-gray-700">Pickup Location</label>
           <select
@@ -253,11 +252,11 @@ const FairCalculator = () => {
         >
           Calculate Fare
         </button>
-        {fare !== null && (
+        {/* {fare !== null && (
           <p className="mt-4 text-center text-lg font-semibold">
             Total Fare: ₹{fare}
           </p>
-        )}
+        )} */}
       </div>
     </div>
   );

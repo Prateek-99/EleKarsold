@@ -14,6 +14,8 @@ module.exports = {
         bannerbg: "url('/punch.jpg')",
         Homebg: "url('/bg.png')",
         Formbg: "url('/evbg.jpg')",
+        Urgent: "url('/urgent.jpg')",
+        Fare: "url('/farebg.jpg')",
       },
       keyframes: {
         typing: {

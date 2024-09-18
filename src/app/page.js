@@ -12,6 +12,11 @@ import OurServices from "@/components/OurServices";
 import ComponentHeader from "@/components/ComponentHeader";
 import Form from "@/components/Form";
 import WhyUs from "@/components/WhyUs";
+import Button from "@/components/Button";
+import Urgent from "@/components/Urgent";
+import OurFleetsCard from "@/components/OurFleetsCard";
+import OurFleets from "@/components/OurFleets";
+import Fare from "@/components/Fare";
 
 export default function Home() {
   return (
@@ -24,36 +29,17 @@ export default function Home() {
         />
         <meta name="viewport" content="width=device-width,initials-scale=1.0" />
       </Head>
-      <div className="gap-4">
+      <div className="gap- bg-blue-50">
         <Banner />
-        <OurServices />
         <ComponentHeader title={"Get In Touch With Us!"} />
         <Form />
+        <OurServices />
         <ComponentHeader title={"Why Choose Us!"} />
         <WhyUs />
-        {/* <div className="pb-6 md:px-6 flex flex-co border-2 mx-4 rounded-xl  md:justify-between">
-          {" "}
-          <Form />
-          <div className="md:w-1/2 px-2 flex">
-            <EnquiryForm />
-          </div>
-          <div className="md:w-1/">
-            <Image
-              src={"/taxi.jpg"}
-              width={100}
-              height={100}
-              alt="contact us"
-            />
-          </div>
-        </div> */}
-        <div>
-          <div>
-            {" "}
-            <FairCalculator />
-          </div>
-          <div></div>
-        </div>
-
+        <br />
+        <Urgent />
+        <Fare />
+        <OurFleets />
         <Footer />
       </div>
     </>
