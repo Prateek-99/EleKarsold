@@ -28,7 +28,7 @@ export default function SemiRoundTripServicesCard() {
         <p className="text-[12px] text-center p-2 text-[#666666] leading-7 font-medium">
           Our semi-round trip EV cab service offers flexibility for travelers
           who have multiple stops or need to return to a different location.
-          Whether it's a short break or a quick detour, we provide a tailored,
+          Whether its a short break or a quick detour, we provide a tailored,
           comfortable ride to suit your needs. Enjoy eco-friendly travel with
           the same safety and reliability, ensuring a smooth experience for your
           multi-stop journey.
