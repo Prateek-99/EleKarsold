@@ -2,7 +2,6 @@ import Image from "next/image";
 import React from "react";
 
 export default function OurFleetsCard({ image, title, content }) {
-  console.log("im", title);
   return (
     <div className="border-2 border-green-500 border-dotted min-w-[350px] max-w-[350px] md:w-[400px]  rounded-lg ">
       <div>

@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { useState, useEffect } from "react";
 import Button from "./Button";
-
+import BannerImage from "../../public/banner1.gif";
 const Banner = () => {
   const [showText, setShowText] = useState(false);
 
@@ -17,8 +17,8 @@ const Banner = () => {
   return (
     <div className="relative  mx-4 rounded-2xl h-[550px] overflow-hidden">
       {/* Background GIF */}
-      <Image
-        src="/banner1.gif"
+      <img
+        src={"/banner1.gif"}
         alt="Banner GIF"
         width={100}
         height={500}
@@ -38,9 +38,7 @@ const Banner = () => {
             Ele<span className="text-[#33ae60]">kars</span>
           </p>
         </h1>
-       
       </div>
-    
     </div>
   );
 };
