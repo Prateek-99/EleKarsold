@@ -1,4 +1,3 @@
-import Image from "next/image";
 import React from "react";
 
 export default function WhyUs() {
@@ -8,7 +7,7 @@ export default function WhyUs() {
         <div className="md:flex md:gap-4 md:px-12  md:justify-start border- items-center ">
           <div className="flex justify-center md:w-ful">
             {" "}
-            <Image
+            <img
               src={"/cost.png"}
               width={150}
               height={150}
@@ -30,18 +29,18 @@ export default function WhyUs() {
           </div>
         </div>
         <div className="md:w-3/4 md:flex hidden justify-center">
-          <Image src={"/punch.png"} width={400} height={200} alt="PunchEV" />
+          <img src={"/punch.png"} width={400} height={200} alt="PunchEV" />
         </div>
       </div>
 
       <div className="flex justify-center 2 border-2 p-2 border-dashed rounded-md  ">
         <div className="md:w-3/4 md:flex hidden justify-center">
-          <Image src={"/punch2.png"} width={400} height={200} alt="PunchEV" />
+          <img src={"/punch2.png"} width={400} height={200} alt="PunchEV" />
         </div>
         <div className="md:flex md:gap-4 md:px-12  md:justify-start border- items-center ">
           <div className="flex justify-center md:w-ful">
             {" "}
-            <Image
+            <img
               src={"/comfort.png"}
               width={150}
               height={150}
@@ -68,7 +67,7 @@ export default function WhyUs() {
         <div className="md:flex md:gap-4 md:px-12  md:justify-start border- items-center ">
           <div className="flex justify-center md:w-ful">
             {" "}
-            <Image
+            <img
               src={"/driver.webp"}
               width={150}
               height={150}
@@ -91,17 +90,17 @@ export default function WhyUs() {
           </div>
         </div>
         <div className="md:w-3/4 md:flex hidden justify-center">
-          <Image src={"/punch.png"} width={400} height={200} alt="PunchEV" />
+          <img src={"/punch.png"} width={400} height={200} alt="PunchEV" />
         </div>
       </div>
       <div className="flex  justify-center border-2 p-2 border-dashed rounded-md  ">
         <div className="md:w-3/4 md:flex hidden justify-center">
-          <Image src={"/punch2.png"} width={400} height={200} alt="PunchEV" />
+          <img src={"/punch2.png"} width={400} height={200} alt="PunchEV" />
         </div>
         <div className="md:flex  md:gap-4 md:px-12  md:justify-start border- items-center ">
           <div className="flex justify-center md:w-ful">
             {" "}
-            <Image
+            <img
               src={"/saftey.png"}
               width={150}
               height={150}

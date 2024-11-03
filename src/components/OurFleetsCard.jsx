@@ -1,4 +1,3 @@
-import Image from "next/image";
 import React from "react";
 
 export default function OurFleetsCard({ image, title, content }) {
@@ -6,7 +5,7 @@ export default function OurFleetsCard({ image, title, content }) {
     <div className="border-2 border-green-500 border-dotted min-w-[350px] max-w-[350px] md:w-[400px]  rounded-lg ">
       <div>
         <div className="p-2 ">
-          <Image
+          <img
             src={image}
             width={400}
             height={400}

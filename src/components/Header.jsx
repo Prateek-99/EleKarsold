@@ -1,5 +1,5 @@
 // components/Header.js
-import Image from "next/image";
+
 import React from "react";
 import Button from "./Button";
 import { isMobile } from "react-device-detect";
@@ -8,7 +8,7 @@ const Header = () => {
   return (
     <header>
       <div className="flex items-center justify-start p-4 bg-gray-100">
-        <Image
+        <img
           src="/logo.png"
           width={100}
           height={100}

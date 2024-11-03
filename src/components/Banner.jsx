@@ -1,7 +1,6 @@
-import Image from "next/image";
+
 import { useState, useEffect } from "react";
 import Button from "./Button";
-import BannerImage from "../../public/banner1.gif";
 const Banner = () => {
   const [showText, setShowText] = useState(false);
 
