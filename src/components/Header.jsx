@@ -5,6 +5,8 @@ import Button from "./Button";
 import { isMobile } from "react-device-detect";
 
 const Header = () => {
+  const phoneNumber = "+916392063669";
+
   return (
     <header>
       <div className="flex items-center justify-start p-4 bg-gray-100">
@@ -32,7 +34,10 @@ const Header = () => {
           className="object-fill hidden md:block rounded-xl shadow-lg border-2"
         /> */}
         <div className="px-2">
-          <Button title={!isMobile ? "Contact Us" : "Call"} />
+          <a href={`tel:${phoneNumber}`}>
+            {" "}
+            <Button title={"Reach Us"} />
+          </a>
         </div>
       </div>
     </header>

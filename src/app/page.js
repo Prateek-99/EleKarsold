@@ -38,7 +38,7 @@ export default function Home() {
         <WhyUs />
         <br />
         <Urgent />
-        <Fare />
+        {/* <Fare /> */}
         <OurFleets />
         <Footer />
       </div>
