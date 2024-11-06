@@ -5,7 +5,7 @@ import Button from "./Button";
 import { isMobile } from "react-device-detect";
 
 const Header = () => {
-  const phoneNumber = "+916392063669";
+  const phoneNumber = "+919201630479";
 
   return (
     <header>
