@@ -16,11 +16,23 @@ const JourneyForm = () => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
   };
-
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(formData);
-    // Handle form submission here
+
+    const response = await fetch("/api/sendEnquiryEmail", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(formData),
+    });
+
+    const result = await response.json();
+    if (result.status) {
+      alert("Enquiry sent successfully");
+    } else {
+      alert("Failed to send enquiry");
+    }
   };
 
   return (
