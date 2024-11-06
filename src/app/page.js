@@ -17,6 +17,7 @@ import Urgent from "@/components/Urgent";
 import OurFleetsCard from "@/components/OurFleetsCard";
 import OurFleets from "@/components/OurFleets";
 import Fare from "@/components/Fare";
+import FloatingWhatsapp from "@/components/FloatingWhatsapp";
 
 export default function Home() {
   return (
@@ -40,7 +41,9 @@ export default function Home() {
         <Urgent />
         {/* <Fare /> */}
         <OurFleets />
+        <FloatingWhatsapp />
         <Footer />
+      
       </div>
     </>
   );
