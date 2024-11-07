@@ -4,7 +4,7 @@ export async function POST(req) {
   const { tripType, name, mobile, email, dateTime, pickup, dropoff } = await req.json();
 
   const transporter = nodemailer.createTransport({
-    service: "hostinger",
+    // service: "hostinger",
     port: 465,
     host: "smtp.hostinger.com",
     secure: true,
