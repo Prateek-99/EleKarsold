@@ -82,6 +82,7 @@ const JourneyForm = () => {
       },
       body: JSON.stringify(formData),
     });
+    
 
     const result = await response.json();
     setIsLoading(false); // Stop loading after the request is completed
